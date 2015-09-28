@@ -10,3 +10,9 @@ gulp.task('compileJade', function() {
   .pipe(jade({pretty: true}))
   .pipe(gulp.dest('dist/'))
 });
+
+gulp.task('compileSass', function() {
+  gulp.src('src/scss/app.scss')
+  .pipe(sass())
+  .pipe(gulp.dest('dist/css/'));
+});

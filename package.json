@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "main": "dist/js/app.js",
   "scripts": {
-    "test": "echo \"Prueba de comandos NPM\""
+    "test": "echo \"Prueba de comandos NPM\"",
+    "server": "http-server ./dist/ -p 3000"
   },
   "repository": {
     "type": "git",

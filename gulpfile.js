@@ -5,14 +5,18 @@ var gulp = require('gulp'),
     jade = require('gulp-jade'),
     sass = require('gulp-sass');
 
-gulp.task('compileJade', function() {
-  gulp.src('src/index.jade')
-  .pipe(jade({pretty: true}))
-  .pipe(gulp.dest('dist/'))
+gulp.task('transpileFiles', ["transpileSass"], function() {
+  console.log('Transpilación Jade, Sass... ¡Satisfactoria!');
 });
 
-gulp.task('compileSass', function() {
-  gulp.src('src/scss/app.scss')
-  .pipe(sass())
-  .pipe(gulp.dest('dist/css/'));
+gulp.task('transpileJade', function() {
+  return gulp.src('src/index.jade')
+    .pipe(jade({pretty: true}))
+    .pipe(gulp.dest('dist/'))
+});
+
+gulp.task('transpileSass', ['transpileJade'], function() {
+  return gulp.src('src/scss/app.scss')
+    .pipe(sass())
+    .pipe(gulp.dest('dist/css/'));
 });

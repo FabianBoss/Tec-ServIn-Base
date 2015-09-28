@@ -20,3 +20,8 @@ gulp.task('transpileSass', ['transpileJade'], function() {
     .pipe(sass())
     .pipe(gulp.dest('dist/css/'));
 });
+
+gulp.task('watchFiles', function() {
+  gulp.watch('src/scss/**/*.scss', ['transpileSass']);
+  gulp.watch('src/index.jade', ['transpileJade']);
+});
